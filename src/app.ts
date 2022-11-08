@@ -1,7 +1,7 @@
 import express, { Application, Request, Response } from 'express';
 import cors from 'cors';
-import createBookRoute from './routes/createBookRoute.js';
-import createUser from './routes/userRoute.js';
+import bookRoute from './routes/bookRoute.js';
+import userRoute from './routes/userRoute.js';
 
 const app: Application = express();
 
@@ -18,7 +18,7 @@ app.get('/status', (req: Request, res: Response) => {
     .status(200);
 });
 
-app.use(createBookRoute);
-app.use(createUser);
+app.use(bookRoute);
+app.use(userRoute);
 
 app.listen(4000, () => console.log(`Listening on port ${PORT}`));

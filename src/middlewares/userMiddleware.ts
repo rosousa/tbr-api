@@ -1,18 +1,13 @@
 import { Request, Response } from 'express';
 import { checkUser } from '../repositories/userRepository.js';
-
-type Credentials = {
-  name: 'string';
-  email: 'string';
-  password: 'string';
-};
+import { Credentials } from '../protocols/Credentials.js';
 
 export default async function userMiddleware(
   req: Request,
   res: Response,
   next: Function
 ) {
-  const userCredentials: Credentials = req.body;
+  const userCredentials = req.body as Credentials;
 
   if (
     !userCredentials.name ||

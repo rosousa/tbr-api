@@ -7,15 +7,11 @@ type Credentials = {
   password: 'string';
 };
 
-export default async function create(req: Request, res: Response) {
-  const userCredentials: Credentials = res.locals.credentials;
+export default function create(req: Request, res: Response) {
+  const userCredentials = res.locals.credentials as Credentials;
 
   try {
-    createUser(
-      userCredentials.name,
-      userCredentials.email,
-      userCredentials.password
-    );
+    createUser(userCredentials);
 
     res.sendStatus(201);
   } catch (error) {
