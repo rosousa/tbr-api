@@ -1,7 +1,6 @@
 import express, { Application, Request, Response } from 'express';
 import cors from 'cors';
 import bookRoute from './routes/bookRoute.js';
-import userRoute from './routes/userRoute.js';
 
 const app: Application = express();
 
@@ -19,6 +18,5 @@ app.get('/status', (req: Request, res: Response) => {
 });
 
 app.use(bookRoute);
-app.use(userRoute);
 
 app.listen(4000, () => console.log(`Listening on port ${PORT}`));

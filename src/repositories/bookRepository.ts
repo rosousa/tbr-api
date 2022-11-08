@@ -12,4 +12,19 @@ function readBook(title: string) {
   return db.query(`SELECT * FROM books WHERE title = $1;`, [title]);
 }
 
-export { createBook, readBook };
+function readBooks() {
+  return db.query(`SELECT * FROM books;`);
+}
+
+function updateBook(title: string, status: boolean) {
+  return db.query(`UPDATE books SET status = $1 WHERE title = $2;`, [
+    status,
+    title,
+  ]);
+}
+
+function deleteBook(title: string) {
+  return db.query(`DELETE FROM books WHERE title = $1;`, [title]);
+}
+
+export { createBook, readBook, readBooks, updateBook, deleteBook };
