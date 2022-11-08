@@ -1,10 +1,8 @@
 import express, { Application, Request, Response } from 'express';
-import cors from 'cors';
 import bookRoute from './routes/bookRoute.js';
 
 const app: Application = express();
 
-app.use(cors());
 app.use(express.json());
 
 const PORT: number = 4000;
