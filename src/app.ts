@@ -1,15 +1,24 @@
-import express from 'express';
+import express, { Application, Request, Response } from 'express';
+import cors from 'cors';
+import createBookRoute from './routes/createBookRoute.js';
+import createUser from './routes/userRoute.js';
 
-const app = express();
+const app: Application = express();
+
+app.use(cors());
+app.use(express.json());
 
 const PORT: number = 4000;
 
-app.get('/status', (req, res) => {
+app.get('/status', (req: Request, res: Response) => {
   res
     .send({
       message: 'Ok',
     })
     .status(200);
 });
+
+app.use(createBookRoute);
+app.use(createUser);
 
 app.listen(4000, () => console.log(`Listening on port ${PORT}`));
