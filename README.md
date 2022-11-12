@@ -4,7 +4,7 @@
 
 # A simple book organizer
 
-A barebones Node.js app using [Express 4](http://expressjs.com/), [TypeScript](https://www.typescriptlang.org/) and [PostgreSQL](https://www.postgresql.org/).
+A barebones Node.js app using [Express 4](https://expressjs.com/), [TypeScript](https://www.typescriptlang.org/) and [PostgreSQL](https://www.postgresql.org/).
 
 ## Running Locally
 
